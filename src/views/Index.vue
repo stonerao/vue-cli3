@@ -18,11 +18,9 @@
             </s-alist>
           </s-scroll>
         </s-box>
-        <s-box title="Top5 Alerts">
-          <s-scroll slot="main" class="s-box-full">
-            <s-alist slot="main">
-            </s-alist>
-          </s-scroll>
+        <s-box title="Top5 Alerts"> 
+          <s-top slot="main">
+          </s-top> 
         </s-box>
       </div>
       <div class="_index--center _index--item flex-2">
@@ -51,7 +49,7 @@ export default {
     "s-box": box,
     "s-scroll": scroll,
     "s-alist": alertList,
-    "s-top": top,
+    "s-top": top
   },
   mounted() {}
 };
