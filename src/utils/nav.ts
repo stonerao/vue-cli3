@@ -1,6 +1,6 @@
-const navs: any[] = [{
+let navs: any[] = [{
     name: "OVERVIEW",
-    icon: 'icon-tongji',
+    icon: 'icon-header-tongji',
     path: '/index'
 },
 {
@@ -14,7 +14,7 @@ const navs: any[] = [{
         path: "/screenMonitoring",
     },
     ],
-    icon: "icon-biaoshilei_yuanchengpeizhi"
+    icon: "icon-header-biaoshilei_yuanchengpeizhi"
 },
 {
     name: "MONITORING",
@@ -27,7 +27,7 @@ const navs: any[] = [{
         path: "/serviceMonitoring/pandect",
     },
     ],
-    icon: "icon-mubiao"
+    icon: "icon-header-mubiao"
 },
 {
     name: "Vulnerability",
@@ -41,11 +41,11 @@ const navs: any[] = [{
             path: "/loopholeQuery",
         },
     ],
-    icon: "icon-mubiao"
+    icon: "icon-header-mubiao"
 },
 {
     name: "EVENT",
-    icon: "icon-leida",
+    icon: "icon-header-leida",
     children: [
         {
             name: "Log",
@@ -63,7 +63,7 @@ const navs: any[] = [{
 },
 {
     name: "WORKORDER",
-    icon: "icon-touzijilu-blue",
+    icon: "icon-header-touzijilu-blue",
     children: [{
         name: "Work Order",
         path: "/orders",
@@ -76,11 +76,11 @@ const navs: any[] = [{
         path: "/ontology",
     },
     ],
-    icon: "icon-wenjian1"
+    icon: "icon-header-wenjian1"
 },
 {
     name: "ADMIN",
-    icon: 'icon-character-avatar',
+    icon: 'icon-header-character-avatar',
     children: [{
         name: "Role",
         path: "/roleManage",
@@ -90,3 +90,4 @@ const navs: any[] = [{
         path: "/userManage",
     }]
 }]
+export default navs

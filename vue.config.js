@@ -34,13 +34,19 @@ module.exports = {
     parallel: require("os").cpus().length > 1, // PWA 插件相关配置 // see https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
     pwa: {}, // configure webpack-dev-server behavior
     devServer: {
-        open: process.platform === "darwin", 
-        disableHostCheck: false, 
-        host: "0.0.0.0",  
-        port: 8080, 
-        https: false, 
+        open: process.platform === "darwin",
+        disableHostCheck: false,
+        host: "0.0.0.0",
+        port: 8080,
+        https: false,
         hotOnly: false, // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy 
-        proxy: null // string | Object 
+        // proxy: null // string | Object 
+        proxy: {
+            '/api': { //这里是公共部分，在调用接口时后面接不相同的部分， 
+                target: 'http://bjp.eelantech.com:2880/', //这里写的是访问接口的域名和端口号
+                changeOrigin: true, // 必须加上这个才能跨域请求 
+            }
+        }
         // before: app => {}
     }, // 第三方插件配置 
     pluginOptions: {
