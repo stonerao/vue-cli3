@@ -69,7 +69,7 @@ let navs: any[] = [{
         path: "/orders",
     },]
 },
-{
+/* {
     name: "KNOWLEDGE",
     children: [{
         name: "Ontology Library",
@@ -89,5 +89,5 @@ let navs: any[] = [{
         name: "Account",
         path: "/userManage",
     }]
-}]
+} */]
 export default navs

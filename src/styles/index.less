@@ -11,15 +11,17 @@
 .s-box {
     border: 1px solid @font-icolor;
 }
-.s-box-full{
+
+.s-box-full {
     position: absolute;
     top: 30px;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.text-center{
-    text-align:center;
+
+.text-center {
+    text-align: center;
 }
 
 .text-hidden {
@@ -34,6 +36,18 @@
     text-align: center;
     color: @font-icolor;
     font-size: 22px;
+}
+
+.not-text {
+    -moz-user-select: none;
+    /*火狐*/
+    -webkit-user-select: none;
+    /*webkit浏览器*/
+    -ms-user-select: none;
+    /*IE10*/
+    -khtml-user-select: none;
+    /*早期浏览器*/
+    user-select: none;
 }
 
 .s--btitle {
@@ -59,6 +73,17 @@
     right: 0;
     bottom: 0;
     left: 0;
+}
+.box-full {
+    position: absolute !important;
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.display-flex {
+    display: flex;
 }
 
 .flex-1 {

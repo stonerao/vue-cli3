@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import d3 from "d3";
 export default {
-    
+  data() {
+    return {};
+  }
 };
 </script>
 
 <style>
-</style>
- 
+</style> 

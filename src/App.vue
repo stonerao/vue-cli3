@@ -23,7 +23,7 @@ export default {
 @import url("./styles/public.less");
 @import url("./styles/index.less");
 #app {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
