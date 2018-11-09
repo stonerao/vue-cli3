@@ -1,7 +1,7 @@
 <template>
-    <div class="edit--demo" :id="id">
+  <div class="edit--demo" :id="id">
 
-    </div>
+  </div>
 </template>
 
 <script>
@@ -22,6 +22,7 @@ export default {
     let option = {};
     this.myChart.setOption(option);
     window.addEventListener("resize", this.resize);
+   
   },
   methods: {
     resize() {
@@ -32,8 +33,8 @@ export default {
     window.removeEventListener("resize", this.resize);
   },
   watch: {
-    params(val) {  
-    //   console.log(isJSON(val)); 
+    params(val) {
+       
     }
   }
 };

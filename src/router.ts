@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Indexs from './views/Index.vue'
+import Router from 'vue-router' 
 
 Vue.use(Router)
 
@@ -17,6 +16,11 @@ export default new Router({
       path: '/edit',
       name: 'edit',
       component: () => import('./views/Edit.vue')
+    },
+    {
+      path: '/configur',
+      name: 'configur',
+      component: () => import('./views/Configur.vue')
     }
   ]
 })

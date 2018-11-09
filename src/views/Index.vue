@@ -2,7 +2,7 @@
   <!-- <s-alert></s-alert> -->
   <div class="full">
     <div class="s_title _index_title">
-      2018年10月16日 15:46:42
+      <s-time></s-time>
     </div>
     <div class="_index">
       <div class="_index--left _index--item flex-1">
@@ -18,40 +18,51 @@
             </s-alist>
           </s-scroll>
         </s-box>
-        <s-box title="Top5 Alerts"> 
+        <s-box title="Top5 Alerts">
           <s-top slot="main">
-          </s-top> 
+          </s-top>
         </s-box>
       </div>
       <div class="_index--center _index--item flex-2">
-        <div class="s-box _index-topo"> </div>
+        <div class="s-box _index-topo">
+          <word-map></word-map>
+        </div>
         <div class="s-box _index-bar"> </div>
       </div>
       <div class="_index--right _index--item flex-1">
-        <div class="s-box"> </div>
+        <div class="s-box">
+          <s-line></s-line>
+        </div>
         <div class="s-box"> </div>
         <div class="s-box"> </div>
       </div>
     </div>
-
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import alert from "@/components/Index/alert.vue";
 import alertList from "@/components/Index/alertList.vue";
 import top from "@/components/Index/top.vue";
 import scroll from "@/components/public/scroll.vue";
 import box from "@/components/public/box.vue";
+import map from "@/components/Index/map.vue";
+import time from "@/components/public/time.vue";
+import line from "@/components/charts/line.vue";
 export default {
   components: {
     "s-alert": alert,
     "s-box": box,
     "s-scroll": scroll,
     "s-alist": alertList,
-    "s-top": top
+    "s-top": top,
+    "s-time": time,
+    "word-map": map,
+    "s-line": line,
   },
-  mounted() {}
+  data() {
+    return {};
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -83,6 +94,7 @@ export default {
 ._index--center {
   .index--box;
   ._index-topo {
+    position: relative;
     height: 65.6%;
   }
   ._index-bar {

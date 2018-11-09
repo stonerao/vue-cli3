@@ -5,9 +5,9 @@
         <li class="cur" v-for="item in left_item" :key="item.type" :data-id="item.type" v-html="item.name" draggable="true" @dragstart="drag"></li>
       </ul>
     </div>
-    <el-dialog title="提示" :visible.sync="visible" width="90%">
+    <el-dialog title="提示" :visible.sync="visible" width="50%">
       <el-row :gutter="20">
-        <el-col :span="10">
+        <el-col :span="24">
           <el-form ref="form" :model="form" label-width="80px">
             <el-form-item label="名称">
               <el-input v-model="form.name" style="width:100%"></el-input>
@@ -19,15 +19,6 @@
             </el-form-item>
           </el-form>
         </el-col>
-        <el-col :span="14">
-          <el-input type="textarea" :rows="10" placeholder="" v-model="chartItem.code">
-          </el-input>
-          <pre>
-            1
-          </pre>
-          <s-demo :params="chartItem.code"></s-demo>
-        </el-col>
-
         <el-col :span="24">
           <el-form label-width="80px">
 
@@ -56,7 +47,7 @@
 
 <script>
 /**
- * 页面高宽 3 * 6 
+ * 页面高宽 3 * 6
  */
 import Chart from "@/components/edit/chart.vue";
 import Demo from "@/components/edit/demo.vue";
@@ -65,7 +56,7 @@ export default {
   components: {
     "s-chart": Chart,
     "s-box": Box,
-    "s-demo": Demo,
+    "s-demo": Demo
   },
   data() {
     return {
@@ -193,8 +184,8 @@ export default {
 
 <style lang="less">
 pre {
-    white-space: pre-wrap;
-  }
+  white-space: pre-wrap;
+}
 #_edit {
   ._edit-left {
     width: 200px;

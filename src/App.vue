@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <s-head id="head" class="s-box"></s-head>
-    <s-scroll class="view"> 
-      <router-view  slot="main"/>
+    <s-scroll class="view">
+      <router-view slot="main" />
     </s-scroll>
 
   </div>
@@ -22,6 +22,8 @@ export default {
 @import url("./styles/reset.less");
 @import url("./styles/public.less");
 @import url("./styles/index.less");
+@import url("./styles/animate.less");
+@import url("./styles/element.less");
 #app {
   position: absolute;
   top: 0;
@@ -30,7 +32,7 @@ export default {
   left: 0;
   background-color: @i-background;
   min-width: @min-width;
-} 
+}
 #head {
   color: @font-color;
   height: @head-height;
@@ -39,7 +41,7 @@ export default {
   right: @margin;
   top: @margin;
   // background: url("./assets/head/background.png") no-repeat center;
-  // border:2px solid @font-icolor; 
+  // border:2px solid @font-icolor;
   background-size: 100% 100%;
 }
 .view {
@@ -47,7 +49,7 @@ export default {
   left: @margin;
   right: @margin;
   top: 90px;
-  bottom: @margin; 
-  color:#fff;
+  bottom: @margin;
+  color: #fff;
 }
 </style>
