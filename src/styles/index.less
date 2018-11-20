@@ -8,19 +8,6 @@
     cursor: pointer;
 }
 
-.s-box {
-    border: 1px solid @font-icolor;
-    position: relative;
-}
-
-.s-box-full {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
 .text-center {
     text-align: center;
 }
@@ -29,14 +16,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.s_title {
-    height: @t-lineheight;
-    line-height: @t-lineheight;
-    text-align: center;
-    color: @font-icolor;
-    font-size: 22px;
 }
 
 .not-text {
@@ -49,23 +28,6 @@
     -khtml-user-select: none;
     /*早期浏览器*/
     user-select: none;
-}
-
-.s--btitle {
-    height: 28px;
-    line-height: 28px;
-    border-bottom: 1px solid @font-icolor;
-    padding-left: 5px;
-    span,
-    i,
-    a {
-        font-size: 16px;
-        color: @font-icolor
-    }
-    i {
-        margin-right: 5px;
-        font-size: 18px;
-    }
 }
 
 .full {
@@ -114,4 +76,93 @@
 
 .flex-5 {
     flex: 5
+}
+.full {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.full-c {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.f-base {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.o-h {
+    overflow: hidden;
+}
+
+.f-cb {
+    .f-base;
+    background-size: cover;
+}
+
+.f-b {
+    .f-base;
+    background-size: 100% 100%;
+}
+
+.i-b {
+    background-image: url('../assets/public/index-background.jpg')
+}
+
+.i-ab {
+    background-image: url('../assets/public/background.png')
+}
+
+.d-ib {
+    display: inline-block;
+}
+ 
+
+.d-f-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-m {
+    vertical-align: middle
+}
+
+ 
+
+//蓝色浅字体
+.i-f-c {
+    color: @i-color;
+}
+
+//白色字体
+.d-f-c {
+    color: @d-color;
+}
+
+//白色字体
+.f-f-c {
+    color: @d-color;
+}
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.case-b {
+    .f-b;
+    background-image: url('../assets/public/model.png')
 }

@@ -1,121 +1,124 @@
 <template>
-  <div id="head">
-    <div class="h-title">
-      <img class="h-title--img" src="../../assets/head/logo.png" />
-      <span class="h-title--text">
-        {{$t("nav.title")}}
-      </span>
+  <header id="header" class="d-f-sb">
+    <div class="header-title">
+      <div class="title--logo">
+        <img src="../../assets/public/logo.png" :alt="title" class="img-m">
+      </div>
+      <div class="title--text">
+        {{title}}
+      </div>
     </div>
-    <ul class="head-navs">
-      <li v-for="(item,index) in navs" :key="index" class="cur">
-        <div class="head-navs--title">
-          <s-icon :xhrf="`#${item.icon}`" class="svg-icon"></s-icon>
-          <span>{{item.name}}</span>
-          <i class="el-icon-arrow-down head-navs--icon" v-if="item.children"></i>
-        </div>
-        <ol v-if="item.children" class="head-navs--children">
-          <li v-for="(box,i) in item.children" :key="i" v-html="box.name"></li>
-        </ol>
-      </li>
-    </ul>
-  </div>
-</template> 
-<script lang="ts">
-import "../../assets/head/iconfont.js";
-import icon from "../public/icon.vue";
-import navs from "@/utils/nav.ts";
+    <div class="header-navs">
+      <ul class="navs-items">
+        <li v-for="(item,index) in items" :key="index">
+          <div class="d-ib cur">
+            <i class="iconfont icon-header-biaoshilei_yuanchengpeizhi"></i>
+            <span v-html="item.name"></span>
+          </div>
+          <ol v-if="item.children">
+            <router-link v-for="(it,i) in item.children" :key="i" tag="li" :to="it.path" class="cur">
+              {{it.name}}
+            </router-link>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </header>
+</template>
+
+<script>
+import "@/assets/icon/header/iconfont.css";
+import { mapState } from "vuex";
+import items from "@/utils/nav.ts";
 export default {
-  components: {
-    "s-icon": icon
-  },
   data() {
     return {
-      navs: navs
+      title: "Intranet Situation Awareness System"
     };
   },
-  mounted() {},
-  methods: {}
+  computed: {
+    ...mapState({
+      status: state => {
+        return state.headStatus;
+      }
+    }),
+    items() {
+      return items;
+    }
+  }
 };
 </script>
-<style lang="less">
-// .router-link-exact-active {
-//   color: #ffbf3b;
-// }
-</style>
-
 <style lang="less" scoped>
 @import url("../../styles/public.less");
-#head {
-  display: flex;
-  justify-content: space-between;
-  .h-title {
-    line-height: @head-height - 5px;
-    padding-left: 20px;
-    display: inline-block;
+@height: 84px;
+@active-c: #ffe576;
+#header {
+  height: @height;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  color: @d-color;
+  .header-title {
+    line-height: @height;
+    display: flex;
   }
-  .h-title--img {
-    vertical-align: middle;
-    position: relative;
-    top: -2px;
-    height: 45px;
+  .title--text {
+    font-size: 32px;
+    font-weight: bold;
   }
-  .head-navs--icon {
-    font-size: 13px;
-    margin-left: 3px;
-    position: relative;
-    top: 2px;
+  .img-m {
+    margin-right: 15px;
+    height: 55px;
   }
-  .h-title--text {
-    font-size: 22px;
+  .header-navs {
   }
-  .head-navs {
-    display: inline-block;
-    margin-right: 20px;
-
+  .navs-items {
+    display: flex;
+    margin-right: 70px;
+    li.active,
+    li:hover {
+      > div {
+        color: @active-c;
+      }
+    }
     > li {
+      flex: 1;
       display: inline-block;
-
-      // position: relative;
-    }
-    > li:hover {
-      .head-navs--children {
-        display: block;
-      }
-    }
-    .head-navs--children {
-      background: @i-background;
-      position: absolute;
-      top: 50px;
-      display: none;
-      // border-radius: 4px;
-      // background: #2f72b6;
-      z-index: 10;
-      margin-left: 0px;
-      padding-top: 30px;
-      min-width: 80px;
-      li {
-        line-height: 36px;
-        font-size: 14px;
-        padding: 0 10px;
-        transition: all 0.2s;
-      }
-      li:hover {
-        background: #f5f5f533;
-      }
-    }
-    .head-navs--title {
-      line-height: @head-height;
-      font-size: 14px;
-      padding: 0 5px;
-      span {
+      position: relative;
+      i {
         position: relative;
         top: 2px;
+        padding-right: 5px;
+        font-size: 20px;
+      }
+      > div {
+        display: flex;
+        line-height: @height;
+        padding: 0 20px;
+        font-size: 16px;
+      }
+      span {
+        font-size: 18px;
       }
     }
-    .svg-icon {
-      width: 28px;
-      height: 26px;
-      vertical-align: middle;
+    > li:hover {
+      ol {
+        display: inline-block;
+      }
+    }
+    ol {
+      display: none;
+      position: absolute;
+      padding: 0 10px;
+      line-height: 34px;
+      left: 15px;
+      transform: translateY(-20px);
+      z-index: 999;
+      li {
+        width: 200px;
+        font-size: 16px;
+      }
     }
   }
 }

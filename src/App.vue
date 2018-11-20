@@ -1,23 +1,32 @@
 <template>
-  <div id="app">
-    <s-head id="head" class="s-box"></s-head>
-    <s-scroll class="view">
+  <y-scroll id="app" :class="indexBackground">
+    <s-head class="s-box head" slot="main"></s-head>
+    <y-scroll class="view" slot="main">
       <router-view slot="main" />
-    </s-scroll>
+    </y-scroll>
 
-  </div>
+  </y-scroll>
 </template>
 <script>
 import Head from "./components/head/index";
-import scroll from "./components/public/scroll";
 export default {
+  created() {
+    console.log(this.$route.path);
+  },
   components: {
-    "s-head": Head,
-    "s-scroll": scroll
+    "s-head": Head
+  },
+  computed: {
+    indexBackground() {
+      if (this.$route.path == "/" || this.$route.path == "/index") {
+        return "background--index";
+      } else {
+        return "background--app";
+      }
+    }
   }
 };
-</script>
-
+</script> 
 <style lang="less">
 @import url("./styles/reset.less");
 @import url("./styles/public.less");
@@ -32,17 +41,19 @@ export default {
   left: 0;
   background-color: @i-background;
   min-width: @min-width;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
-#head {
-  color: @font-color;
-  height: @head-height;
-  position: absolute;
-  left: @margin;
-  right: @margin;
-  top: @margin;
-  // background: url("./assets/head/background.png") no-repeat center;
-  // border:2px solid @font-icolor;
-  background-size: 100% 100%;
+.background--index {
+  background-image: url("./assets/index-b1.jpg");
+}
+.background--app {
+  background-image: url("./assets/index-b2.png");
+}
+
+.head {
 }
 .view {
   position: absolute;
